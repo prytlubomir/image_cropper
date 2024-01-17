@@ -1,17 +1,17 @@
-### Image cropper
+# Image cropper
 
 ## Using as an application
 
 Images from the input directory will crop on top and bottom and be saved to
 the output directory, according to the `config.py` file.
 
-# Installing
+### Installing
 
 Step 1. Install [python](python.org)
 Step 2. Open the application's directory in a terminal or command line.
 Step 3. To install requirements, run this command: `pip install -r requirements.txt`
 
-# Usage
+### Usage
 
 Step 1. Edit `config.py` as you need to.
 Step 2. Run by the command `python path\to\project\directory\main.py` for `windows`,
