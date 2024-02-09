@@ -31,13 +31,17 @@ def crop_image(image: Image, crop_height: int) -> Image:
 
 if __name__ == "__main__":
 
-    files = os.listdir(conf.INPUT)
-    files = filter_files(files, conf.IMG_FORMATS)
+    # get a list of image file names
+    files = os.listdir(conf.INPUT) # get the contents of the input directory
+    files = filter_files(files, conf.IMG_FORMATS) # remove everything except images
 
+    # process images
     for file in files:
-        img = Image.open(f'{conf.INPUT}/{file}')
+        # crop image
+        img = Image.open(f'{conf.INPUT}/{file}') # get uncropped image
         img2 = crop_image(img, conf.CROP_HEIGHT)
 
+    	# save image
         number = files.index(file)
         extention = file.split('.')[-1]
         img2.save(f'{conf.OUTPUT}/{conf.NEW_FILES_NAME}{number}.{extention}')
