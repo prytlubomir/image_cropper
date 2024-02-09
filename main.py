@@ -43,5 +43,5 @@ if __name__ == "__main__":
 
     	# save image
         number = files.index(file)
-        extention = file.split('.')[-1]
-        img2.save(f'{conf.OUTPUT}/{conf.NEW_FILES_NAME}{number}.{extention}')
+        extension = file.split('.')[-1]
+        img2.save(f'{conf.OUTPUT}/{conf.NEW_FILES_NAME}{number}.{extension}')
