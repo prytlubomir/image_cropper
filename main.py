@@ -10,7 +10,7 @@ from PIL import Image              # image processing
 import config as conf              # configuration
 
 
-def file_filter(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
+def filter_files(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
     '''Filter files by supported formats'''
     result = []
     for filename in filenames:
@@ -32,7 +32,7 @@ def crop_image(image: Image, crop_height: int) -> Image:
 if __name__ == "__main__":
 
     files = os.listdir(conf.INPUT)
-    files = file_filter(files, conf.IMG_FORMATS)
+    files = filter_files(files, conf.IMG_FORMATS)
 
     for file in files:
         img = Image.open(f'{conf.INPUT}/{file}')
