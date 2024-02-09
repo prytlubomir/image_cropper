@@ -1,5 +1,5 @@
-INPUT = './Input'
-OUTPUT = './Output'
+INPUT = './abc'
+OUTPUT = './cba'
 
 IMG_FORMATS = ['png', 'jpg', 'jpeg']
 

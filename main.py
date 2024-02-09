@@ -1,12 +1,13 @@
 '''
-Cut some from top and bottom of every images in selected directory.
+Crop a few pixels from the top and bottom of each image in the selected directory.
 '''
-import os
-from typing import Iterable, Any
+import os                          # interface
 
-from PIL import Image
+from typing import Iterable, Any   # annotations
 
-import config as conf
+from PIL import Image              # image processing
+
+import config as conf              # configuration
 
 
 def file_filter(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
@@ -19,7 +20,7 @@ def file_filter(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
 
 
 def crop_image(image: Image, crop_height: int) -> Image:
-    '''Cut some pixels from top and bottom of selected image.'''
+    '''Crop a few pixels from the top and bottom of the selected image.'''
     width, height = image.size
     crop_rectangle = (0, 60, width, height - crop_height)
 
