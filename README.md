@@ -13,7 +13,7 @@ Step 3. To install requirements, run this command: `pip install -r requirements.
 
 ### Usage
 
-Step 1. Edit `config.py` as you need to.
+Step 1. Edit `config.ini` as you need to.
 Step 2. Run by the command `python path\to\project\directory\main.py` for `windows`,
         and `python3 path\to\project\directory\main.py` for `Linux` or `MacOs`.
 
