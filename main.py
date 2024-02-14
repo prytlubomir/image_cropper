@@ -33,16 +33,22 @@ if __name__ == "__main__":
     # read configuration file
     config = configparser.ConfigParser()
     config.read('./config.ini')
+
+
     # declare variables
     INPUT  = config.get('storage', 'INPUT')
     OUTPUT = config.get('storage', 'OUTPUT')
+
     IMG_FORMATS = config.get('filter', 'IMG_FORMATS').split()
     CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT')
+
     NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES')
+
 
     # get a list of image file names
     files = os.listdir(INPUT) # get the contents of the input directory
     files = filter_files(files, IMG_FORMATS) # remove everything except images
+
 
     # process images
     for file in files:
