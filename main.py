@@ -9,7 +9,7 @@ import sys
 from typing import Iterable, Any
 
 # image processing
-from PIL import Image 
+from PIL import Image
 
 # configuration
 import config as conf
