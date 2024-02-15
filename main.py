@@ -46,17 +46,31 @@ if __name__ == "__main__":
 
 
     # get a list of image file names
+
+    print("Searching files...")
+
     files = os.listdir(INPUT) # get the contents of the input directory
     files = filter_files(files, IMG_FORMATS) # remove everything except images
 
+    print("Files find.")
+
 
     # process images
+
+    print("Start cropping images...")
+
     for file in files:
         # crop image
         img = Image.open(f'{INPUT}/{file}') # get uncropped image
         img2 = crop_image(img, CROP_HEIGHT)
 
+        print(f"Image {file} cropped.")
+
+
     	# save image
         number = files.index(file)
         extension = file.split('.')[-1]
-        img2.save(f'{OUTPUT}/{NEW_FILE_NAMES}{number}.{extension}')
+        new_file_name = f'{NEW_FILE_NAMES}{number}.{extension}'
+        img2.save(f'{OUTPUT}/{new_file_name}')
+
+        print(f"Image {file} saved as {new_file_name}")
