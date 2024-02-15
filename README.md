@@ -3,7 +3,7 @@
 ## Using as an application
 
 Images from the input directory will crop on top and bottom and be saved to
-the output directory, according to the `config.py` file.
+the output directory, according to the `config.ini` file.
 
 ### Installing
 
