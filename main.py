@@ -53,7 +53,7 @@ if __name__ == "__main__":
     arg_crop  = list(filter(lambda x: x.isdigit(), sys.argv[1:]))
 
     # NEW_FILE_NAMES and IMG_FORMATS
-    arg_str   = list(filter(lambda x: not x.isdigit() and not os.path.exists, sys.argv[1:]))
+    arg_str   = list(filter(lambda x: not x.isdigit() and not os.path.exists(x), sys.argv[1:]))
 
     '''TODO: clear following code'''
     # get path to input directory
@@ -66,13 +66,19 @@ if __name__ == "__main__":
     if len(arg_paths) > 1:
         OUTPUT = arg_paths[1]
     elif OUTPUT == None:
-        OUTPUT = input('Path to output directory: ').split(' ')
+        OUTPUT = input('Path to output directory: ')
 
     # get crop heigth
     if len(arg_crop) > 0:
         CROP_HEIGHT = arg_crop[0]
     elif CROP_HEIGHT == None:
         CROP_HEIGHT = input("How much pixels do you want to crop? : ")
+    # validation
+    if not CROP_HEIGHT.isdigit():
+        print('Crop height must be digit!') # error message
+        sys.exit() # stop program
+    # convertation
+    CROP_HEIGHT = int(CROP_HEIGHT)
 
     # get first part of new file names
     if len(arg_str) > 0:
@@ -87,8 +93,9 @@ if __name__ == "__main__":
         print("Enter image formats you want to crop separated by space")
         # get string
         # separate it by space to list
-        # make all items lowercase
-        IMG_FORMATS = list(map(lambda x: x.lower(), input(": ").split(' ')))
+        IMG_FORMATS = input(": ").split(' ')
+    # make all items lowercase
+    IMG_FORMATS = list(map(lambda x: x.lower(), IMG_FORMATS))
 
     # get a list of image file names
 
