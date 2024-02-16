@@ -25,7 +25,7 @@ def filter_files(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
 def crop_image(image: Image, crop_height: int) -> Image:
     '''Crop a few pixels from the top and bottom of the selected image.'''
     width, height = image.size
-    crop_rectangle = (0, 60, width, height - crop_height)
+    crop_rectangle = (0, crop_height, width, height - crop_height)
 
     cropped = image.crop(crop_rectangle)
 
