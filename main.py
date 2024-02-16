@@ -7,7 +7,8 @@ import sys                         # interface
 
 import configparser                # configuration
 
-from typing import Iterable, Any   # annotations
+# annotations
+from typing import Iterable, Any
 
 from PIL import Image              # image processing
 
@@ -44,11 +45,30 @@ if __name__ == "__main__":
     CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT')
 
     NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES')
-
-
-    # check command line arguments
+    '''
+    TODO:
+    The config file should be just a simple .txt file
+    since a .py file must be imported
+    but import in the if statement doesn't look good.
+    '''
+    # get paths to input and output directories
     arg_paths = list(map(os.path.exists, sys.argv[1:]))
 
+    # get path to input directory
+    if len(arg_paths) > 0:
+        INPUT  = arg_paths[0]
+    elif 'conf' in globals() and 'INPUT' in conf.__dir__():
+        INPUT = conf.INPUT
+    else:
+        INPUT = input('Path to input directory: ')
+
+    if len(arg_paths) > 1:
+        OUTPUT = arg_paths[1:]
+    elif 'conf' in globals() and 'OUTPUT' in conf.__dir__():
+        OUTPUT = conf.OUTPUT
+    else:
+        print('Enter paths to output directories separated by space.')
+        OUTPUT = input(': ').split(' ')
 
 
     # get a list of image file names
