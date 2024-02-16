@@ -71,14 +71,20 @@ if __name__ == "__main__":
     # get crop heigth
     if len(arg_crop) > 0:
         CROP_HEIGHT = arg_crop[0]
+        # validation
+        if not CROP_HEIGHT.isdigit():
+            print('Crop height must be digit!') # error message
+            sys.exit() # stop program
+        # convertation
+        CROP_HEIGHT = int(CROP_HEIGHT)
     elif CROP_HEIGHT == None:
         CROP_HEIGHT = input("How much pixels do you want to crop? : ")
-    # validation
-    if not CROP_HEIGHT.isdigit():
-        print('Crop height must be digit!') # error message
-        sys.exit() # stop program
-    # convertation
-    CROP_HEIGHT = int(CROP_HEIGHT)
+        # validation
+        if not CROP_HEIGHT.isdigit():
+            print('Crop height must be digit!') # error message
+            sys.exit() # stop program
+        # convertation
+        CROP_HEIGHT = int(CROP_HEIGHT)
 
     # get first part of new file names
     if len(arg_str) > 0:
