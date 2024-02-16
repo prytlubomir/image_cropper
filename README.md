@@ -1,23 +1,35 @@
 # Image cropper
 
-## Using as an application
-
 Images from the input directory will crop on top and bottom and be saved to
 the output directory, according to the `config.ini` file.
 
-### Installing
+## Installing
 
 Step 1. Install [python](python.org)
 Step 2. Open the application's directory in a terminal or command line.
 Step 3. To install requirements, run this command: `pip install -r requirements.txt`
 
-### Usage
+## Usage
 
-Step 1. Edit `config.ini` as you need to.
-Step 2. Run by the command `python path\to\project\directory\main.py` for `windows`,
+### Using as an application
+
+Way 1. You can simply run program by the command `python path\to\project\directory\main.py` for `windows`,
         and `python3 path\to\project\directory\main.py` for `Linux` or `MacOs`.
+        Then you will see text interface with text fields for all necessarry data.
 
-## Using as a third-party module
+Way 2. You can add additional `arguments` while running program.
+        Arguments will separate by: `existing paths`, `digint`, and `other text`.
+        First `existing path` will use as `directory with oncropped images`;
+        Second `existing path` will use as `directory for save cropped images`;
+        First `digit` will use as `number of pixels for crop`;
+        First `other text` will use as `first part of new file names`;
+        All next `other text` will use as `extentions of files` you want to crop.
+    `All arguments that are not included in this list will be ignored.`
+
+Way 3. Copy 'config.ini' from program directory into working directory,
+        and edit `config.ini` as you need to.
+
+### Using as a third-party module
 
 First of all, run `pip install -r requirements.txt` in the module's directory to install requirements.
 
