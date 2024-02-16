@@ -3,6 +3,8 @@ Crop a few pixels from the top and bottom of each image in the selected director
 '''
 import os                          # file system
 
+import sys                         # interface
+
 import configparser                # configuration
 
 from typing import Iterable, Any   # annotations
@@ -34,7 +36,6 @@ if __name__ == "__main__":
     config = configparser.ConfigParser()
     config.read('./config.ini')
 
-
     # declare variables
     INPUT  = config.get('storage', 'INPUT')
     OUTPUT = config.get('storage', 'OUTPUT')
@@ -43,6 +44,11 @@ if __name__ == "__main__":
     CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT')
 
     NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES')
+
+
+    # check command line arguments
+    arg_paths = list(map(os.path.exists, sys.argv[1:]))
+
 
 
     # get a list of image file names
