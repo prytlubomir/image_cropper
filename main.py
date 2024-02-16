@@ -38,21 +38,24 @@ if __name__ == "__main__":
     config.read('./config.ini')
 
     # declare variables
-    INPUT  = config.get('storage', 'INPUT')
-    OUTPUT = config.get('storage', 'OUTPUT')
+    INPUT  = config.get('storage', 'INPUT', fallback=None)
+    OUTPUT = config.get('storage', 'OUTPUT', fallback=None)
 
-    IMG_FORMATS = config.get('filter', 'IMG_FORMATS').split()
-    CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT')
+    IMG_FORMATS = config.get('filter', 'IMG_FORMATS', fallback='').split()
+    CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT', fallback=None)
 
-    NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES')
+    NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES', fallback=None)
 
 
     # read command line arguments
     # command line arguments have advantage over configuration file
+    arg_paths = list(filter(os.path.exists, sys.argv[1:]))
+    arg_crop  = list(filter(lambda x: x.isdigit(), sys.argv[1:]))
 
-    # get paths to input and output directories
-    arg_paths = list(map(os.path.exists, sys.argv[1:]))
+    # NEW_FILE_NAMES and IMG_FORMATS
+    arg_str   = list(filter(lambda x: not x.isdigit() and not os.path.exists, sys.argv[1:]))
 
+    '''TODO: clear following code'''
     # get path to input directory
     if len(arg_paths) > 0:
         INPUT  = arg_paths[0]
@@ -63,8 +66,29 @@ if __name__ == "__main__":
     if len(arg_paths) > 1:
         OUTPUT = arg_paths[1]
     elif OUTPUT == None:
-        OUTPUT = input(': ').split(' ')
+        OUTPUT = input('Path to output directory: ').split(' ')
 
+    # get crop heigth
+    if len(arg_crop) > 0:
+        CROP_HEIGHT = arg_crop[0]
+    elif CROP_HEIGHT == None:
+        CROP_HEIGHT = input("How much pixels do you want to crop? : ")
+
+    # get first part of new file names
+    if len(arg_str) > 0:
+        NEW_FILE_NAMES = arg_str[0]
+    elif NEW_FILE_NAMES == None:
+        NEW_FILE_NAMES = input("First part of new file names: ")
+
+    # get a list of image formats
+    if len(arg_str) > 1:
+        IMG_FORMATS = arg_str[1:]
+    elif IMG_FORMATS == []:
+        print("Enter image formats you want to crop separated by space")
+        # get string
+        # separate it by space to list
+        # make all items lowercase
+        IMG_FORMATS = list(map(lambda x: x.lower(), input(": ").split(' ')))
 
     # get a list of image file names
 
