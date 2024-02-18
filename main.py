@@ -69,17 +69,10 @@ if __name__ == "__main__":
     arg_str   = list(filter(lambda x: not x.isdigit() and not os.path.exists(x), sys.argv[1:]))
 
     '''TODO: clear following code'''
-    # get path to input directory
-    if len(arg_paths) > 0:
-        INPUT  = arg_paths[0]
-    elif INPUT == None:
-        INPUT = input('Path to input directory: ')
-
-    # get path to output directory
-    if len(arg_paths) > 1:
-        OUTPUT = arg_paths[1]
-    elif OUTPUT == None:
-        OUTPUT = input('Path to output directory: ')
+    INPUT = diverse_input(arg_paths, INPUT, "Path to the input directory") # get path to input directory
+    OUTPUT = diverse_input(arg_paths, OUTPUT, 'Path to output directory: ')# get path to output directory
+    # get first part of new file names
+    NEW_FILE_NAMES = diverse_input(arg_str, NEW_FILE_NAMES, "First part of new file names: ")
 
     # get crop heigth
     if len(arg_crop) > 0:
@@ -98,12 +91,6 @@ if __name__ == "__main__":
             sys.exit() # stop program
         # convertation
         CROP_HEIGHT = int(CROP_HEIGHT)
-
-    # get first part of new file names
-    if len(arg_str) > 0:
-        NEW_FILE_NAMES = arg_str[0]
-    elif NEW_FILE_NAMES == None:
-        NEW_FILE_NAMES = input("First part of new file names: ")
 
     # get a list of image formats
     if len(arg_str) > 1:
