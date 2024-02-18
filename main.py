@@ -13,6 +13,58 @@ from typing import Iterable, Any
 from PIL import Image              # image processing
 
 
+def diverse_input(
+    validator: function,
+    conf_obj: configparser.ConfigParser,
+    conf_field: str,
+    conf_parameter: str,
+    conf_fallback: Any = None,
+    converter: function | None = None
+) -> int | list | str:
+    '''Guarantees receipt of requesting data'''
+    # get crop heigth
+
+    data = conf_obj.get(conf_field, conf_parameter, fallback=conf_fallback)
+
+    if len(arg_crop) > 0:
+        CROP_HEIGHT = arg_crop[0]
+        # validation
+        if not CROP_HEIGHT.isdigit():
+            print('Crop height must be digit!') # error message
+            sys.exit() # stop program
+        # convertation
+        CROP_HEIGHT = int(CROP_HEIGHT)
+    elif CROP_HEIGHT == None:
+        CROP_HEIGHT = input("How much pixels do you want to crop? : ")
+        # validation
+        if not CROP_HEIGHT.isdigit():
+            print('Crop height must be digit!') # error message
+            sys.exit() # stop program
+        # convertation
+        CROP_HEIGHT = int(CROP_HEIGHT)
+
+
+def diverse_input(
+        arg_filter: function,
+        arg_process: function,
+        validator: function,
+        conf_obj: configparser.ConfigParser,
+        conf_field: str,
+        conf_param: str,
+        conf_fallback: Any=None,
+        input_message: str="Enter necessary data: " 
+        ) -> Any:
+    '''Guarantees receipt of requesting data'''
+    data = conf_obj.get(conf_field, conf_param, fallback=conf_fallback)
+
+    filtered_args = arg_filter(sys.argv)
+
+    if len(filtered_args) > 0:
+        data = arg_process(data)
+    elif data == None:
+        data = input(input_message)
+
+
 def filter_files(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
     '''Filter files by supported formats'''
     result = []
