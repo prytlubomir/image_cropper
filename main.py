@@ -110,7 +110,7 @@ if __name__ == "__main__":
     files = os.listdir(INPUT) # get the contents of the input directory
     files = filter_files(files, IMG_FORMATS) # remove everything except images
 
-    print("Files find.")
+    print("Files finded.")
 
 
     # process images
