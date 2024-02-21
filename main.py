@@ -83,7 +83,7 @@ if __name__ == "__main__":
             sys.exit() # stop program
         # convertation
         CROP_HEIGHT = int(CROP_HEIGHT)
-    elif CROP_HEIGHT == None:
+    elif not CROP_HEIGHT:
         CROP_HEIGHT = input("How much pixels do you want to crop? : ")
         # validation
         if not CROP_HEIGHT.isdigit():
@@ -95,7 +95,7 @@ if __name__ == "__main__":
     # get a list of image formats
     if len(arg_str) > 1:
         IMG_FORMATS = arg_str[1:]
-    elif IMG_FORMATS == []:
+    elif not IMG_FORMATS:
         print("Enter image formats you want to crop separated by space")
         # get string
         # separate it by space to list
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     files = os.listdir(INPUT) # get the contents of the input directory
     files = filter_files(files, IMG_FORMATS) # remove everything except images
 
-    print("Files find.")
+    print("Files finded.")
 
 
     # process images
