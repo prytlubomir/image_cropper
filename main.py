@@ -13,13 +13,15 @@ from typing import Iterable, Any
 from PIL import Image              # image processing
 
 
-def diverse_input(filtered_args: list, config_data: Any, input_message: str="Enter data: ") -> Any:
+def diverse_input(filtered_args: list, config_data: Any, args_index: int=0, input_message: str="Enter data: ") -> Any:
     '''Guarantees receipt of requesting data'''
 
     data = config_data
 
-    if len(filtered_args) > 0:
-        data = arg_paths[0]
+    print(input_message, data, type(data), bool(data))
+
+    if len(filtered_args) > args_index:
+        data = arg_paths[args_index]
     elif not config_data:
         data = input(input_message)
     
@@ -69,10 +71,10 @@ if __name__ == "__main__":
     arg_str   = list(filter(lambda x: not x.isdigit() and not os.path.exists(x), sys.argv[1:]))
 
     '''TODO: clear following code'''
-    INPUT = diverse_input(arg_paths, INPUT, "Path to the input directory") # get path to input directory
-    OUTPUT = diverse_input(arg_paths, OUTPUT, 'Path to output directory: ')# get path to output directory
+    INPUT = diverse_input(arg_paths, INPUT, 0, "Path to the input directory") # get path to input directory
+    OUTPUT = diverse_input(arg_paths, OUTPUT, 1, 'Path to output directory: ')# get path to output directory
     # get first part of new file names
-    NEW_FILE_NAMES = diverse_input(arg_str, NEW_FILE_NAMES, "First part of new file names: ")
+    NEW_FILE_NAMES = diverse_input(arg_str, NEW_FILE_NAMES, 0, "First part of new file names: ")
 
     # get crop heigth
     if len(arg_crop) > 0:
