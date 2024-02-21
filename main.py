@@ -20,7 +20,7 @@ def diverse_input(filtered_args: list, config_data: Any, input_message: str="Ent
 
     if len(filtered_args) > 0:
         data = arg_paths[0]
-    elif config_data is None:
+    elif not config_data:
         data = input(input_message)
     
     return data
