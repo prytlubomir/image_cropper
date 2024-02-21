@@ -14,7 +14,11 @@ from PIL import Image              # image processing
 
 
 def diverse_input(filtered_args: list, config_data: Any, args_index: int=0, input_message: str="Enter data: ") -> Any:
-    '''Guarantees receipt of requesting data'''
+    '''
+    Guarantees receipt of requesting data.
+
+    args_index - index in what must be expectig data.
+    '''
 
     data = config_data
 
