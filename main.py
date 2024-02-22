@@ -1,5 +1,6 @@
 '''
 Crop a few pixels from the top and bottom of each image in the selected directory.
+vbranch
 '''
 import os                          # file system
 
