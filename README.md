@@ -19,7 +19,7 @@ Way 1. You can simply run program by the command `python path\to\project\directo
 
 Way 2. You can add additional `arguments` while running program.
         Arguments will separate by: `existing paths`, `digint`, and `other text`.
-        First `existing path` will use as `directory with oncropped images`;
+        First `existing path` will use as `directory with uncropped images`;
         Second `existing path` will use as `directory for save cropped images`;
         First `digit` will use as `number of pixels for crop`;
         First `other text` will use as `first part of new file names`;
