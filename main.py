@@ -13,7 +13,12 @@ from typing import Iterable, Any
 from PIL import Image              # image processing
 
 
-def diverse_input(filtered_args: list, config_data: Any, args_index: int=0, input_message: str="Enter data: ") -> Any:
+def diverse_input(
+    filtered_args: list,
+    config_data: Any,
+    args_index: int=0,
+    input_message: str="Enter data: "
+) -> Any:
     '''
     Guarantees receipt of requesting data by getting data in multiple ways.
     Some ways have advantage over others in the following order:
