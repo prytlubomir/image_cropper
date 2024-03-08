@@ -25,7 +25,7 @@ def diverse_input(filtered_args: list, config_data: Any, args_index: int=0, inpu
     print(input_message, data, type(data), bool(data))
 
     if len(filtered_args) > args_index:
-        data = arg_paths[args_index]
+        data = filtered_args[args_index]
     elif not config_data:
         data = input(input_message)
     
