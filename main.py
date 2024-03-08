@@ -28,7 +28,7 @@ def diverse_input(filtered_args: list, config_data: Any, args_index: int=0, inpu
         data = filtered_args[args_index]
     elif not config_data:
         data = input(input_message)
-    
+
     return data
 
 
