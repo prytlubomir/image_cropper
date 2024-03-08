@@ -15,9 +15,21 @@ from PIL import Image              # image processing
 
 def diverse_input(filtered_args: list, config_data: Any, args_index: int=0, input_message: str="Enter data: ") -> Any:
     '''
-    Guarantees receipt of requesting data.
+    Guarantees receipt of requesting data by getting data in multiple ways.
+    Some ways have advantage over others in the following order:
 
-    args_index - index in what must be expectig data.
+        argument > config > input    
+
+    Arguments:
+
+        filtered_args: list - must be a list of command line argument filtered by some type of data,
+                        but you can let there whatever list you want;
+
+        config_data: Any - return of "configparse.ConfigParser.get()" or similar method;
+
+        args_index: int - expecting index of expectig data in "filtered_args";
+
+        input_message: str - will use as an offer to enter data for user, if no data given;
     '''
 
     data = config_data
