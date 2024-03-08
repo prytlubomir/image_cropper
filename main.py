@@ -14,7 +14,7 @@ from PIL import Image              # image processing
 
 
 def diverse_input(
-    filtered_args: list,
+    filtered_args: Iterable[Any],
     config_data: Any,
     args_index: int=0,
     input_message: str="Enter data: "
