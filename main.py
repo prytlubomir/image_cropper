@@ -17,7 +17,8 @@ def diverse_input(
     filtered_args: Iterable[Any],
     config_data: Any,
     args_index: int=0,
-    input_message: str="Enter data: "
+    input_message: str="Enter data: ",
+    validator: function = lambda _: True
 ) -> Any:
     '''
     Guarantees receipt of requesting data by getting data in multiple ways.
