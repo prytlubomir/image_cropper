@@ -92,8 +92,8 @@ if __name__ == "__main__":
     arg_str   = list(filter(lambda x: not x.isdigit() and not os.path.exists(x), sys.argv[1:]))
 
     '''TODO: clear following code'''
-    INPUT = diverse_input(arg_paths, INPUT, 0, "Path to the input directory") # get path to input directory
-    OUTPUT = diverse_input(arg_paths, OUTPUT, 1, 'Path to output directory: ')# get path to output directory
+    INPUT = diverse_input(arg_paths, INPUT, 0, "Path to the input directory") # path to input dir
+    OUTPUT = diverse_input(arg_paths, OUTPUT, 1, 'Path to output directory: ')# path to output dir
     # get first part of new file names
     NEW_FILE_NAMES = diverse_input(arg_str, NEW_FILE_NAMES, 0, "First part of new file names: ")
 
