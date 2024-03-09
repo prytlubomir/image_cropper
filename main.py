@@ -40,8 +40,6 @@ def diverse_input(
 
     data = config_data
 
-    print(input_message, data, type(data), bool(data))
-
     if len(filtered_args) > args_index:
         data = filtered_args[args_index]
     elif not config_data:
