@@ -8,7 +8,7 @@ import sys                         # interface
 import configparser                # configuration
 
 # annotations
-from typing import Iterable, Any
+from typing import Callable, Iterable, Any
 
 from PIL import Image              # image processing
 
@@ -18,7 +18,7 @@ def diverse_input(
     config_data: Any,
     args_index: int=0,
     input_message: str="Enter data: ",
-    validator: function = lambda _: True
+    validator: Callable = lambda _: True
 ) -> Any:
     '''
     Guarantees receipt of requesting data by getting data in multiple ways.
