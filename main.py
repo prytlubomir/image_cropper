@@ -18,7 +18,7 @@ def diverse_input(
     config_data: Any,
     args_index: int=0,
     input_message: str="Enter data: ",
-    validator: Callable = lambda _: True
+    converter: Callable = lambda data: data
 ) -> Any:
     '''
     Guarantees receipt of requesting data by getting data in multiple ways.
@@ -77,6 +77,7 @@ if __name__ == "__main__":
     OUTPUT = config.get('storage', 'OUTPUT', fallback=None)
 
     IMG_FORMATS = config.get('filter', 'IMG_FORMATS', fallback='').split()
+    print(IMG_FORMATS)
     CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT', fallback=None)
 
     NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES', fallback=None)
