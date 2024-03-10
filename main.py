@@ -38,14 +38,19 @@ def diverse_input(
         input_message: str - will use as an offer to enter data for user, if no data given;
     '''
 
-    data = config_data
+    data = converter(config_data)
+    if data:
+        return data
 
     if len(filtered_args) > args_index:
         data = filtered_args[args_index]
-    elif not config_data:
-        data = input(input_message)
+        if converter(data):
+            return data
 
-    return data
+    if not config_data:
+        data = input(input_message)
+        if converter(data):
+            return data
 
 
 def filter_files(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
