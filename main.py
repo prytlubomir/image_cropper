@@ -46,6 +46,7 @@ def diverse_input(
         data = input(input_message)
 
     return data
+# some changes
 
 
 def filter_files(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
