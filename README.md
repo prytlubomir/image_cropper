@@ -34,3 +34,10 @@ Step 3. To install requirements, run this command: `pip install -r requirements.
 First of all, run `pip install -r requirements.txt` in the module's directory to install requirements.
 
 Then you can use the module just like in the `test.py` example file.
+
+## Further development plans
+
+ - [ ] Revrite with OOP.
+A lot of small programs like this don't require OOP.
+This project isn't so big. It hasn't even 200 lines of code, but I already had some problems with development.
+OOP will make code a lot clearer and easier to work with.

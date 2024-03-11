@@ -133,7 +133,7 @@ if __name__ == "__main__":
 
     IMG_FORMATS = config.get('filter', 'IMG_FORMATS', fallback='').split()
 
-    CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT', fallback=None)
+    CROP_HEIGHT = config.get('settings', 'CROP_HEIGHT', fallback=None)
 
     NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES', fallback=None)
 
