@@ -38,18 +38,26 @@ def diverse_input(
         input_message: str - will use as an offer to enter data for user, if no data given;
     '''
     data = converter(config_data)
+    print(data)
 
     if len(filtered_args) > args_index:
         data = filtered_args[args_index]
-        if converter(data):
+        print(data)
+        data = converter(data)
+        if data:
+            print(data)
             return data
 
     if data:
+        print(data)
         return data
 
     if not config_data:
         data = input(input_message)
+        print(data)
+        data = converter(data)
         if converter(data):
+            print(data)
             return data
 
 
@@ -121,7 +129,7 @@ if __name__ == "__main__":
     OUTPUT = config.get('storage', 'OUTPUT', fallback=None)
 
     IMG_FORMATS = config.get('filter', 'IMG_FORMATS', fallback='').split()
-    print(IMG_FORMATS)
+
     CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT', fallback=None)
 
     NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES', fallback=None)
