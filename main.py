@@ -8,7 +8,7 @@ import sys                         # interface
 import configparser                # configuration
 
 # annotations
-from typing import Callable, Iterable, Any
+from typing import Type, Callable, Iterable, Any
 
 from PIL import Image              # image processing
 
@@ -37,18 +37,22 @@ def diverse_input(
 
         input_message: str - will use as an offer to enter data for user, if no data given;
     '''
-
     data = converter(config_data)
+    print('data', data)
     if data:
+        print('data 1', data)
         return data
 
     if len(filtered_args) > args_index:
         data = filtered_args[args_index]
+        print('data 2', data)
         if converter(data):
+            print('data 22', data)
             return data
 
     if not config_data:
         data = input(input_message)
+        print('data 3', data)
         if converter(data):
             return data
 
@@ -70,6 +74,45 @@ def crop_image(image: Image, crop_height: int) -> Image:
     cropped = image.crop(crop_rectangle)
 
     return cropped
+
+
+def instance_converter(_type: Type) -> Callable:
+    '''Generate converter for passed type.'''
+    def converter(data: Any) -> Any | None:
+        '''Return data if data is instance of _type else return None'''
+        if isinstance(data, _type):
+            return data
+        return None
+
+    return converter
+
+
+def path_converter(data: Any) -> str | None:
+    '''Return data, if data is directory, else return None'''
+    if os.path.isdir(data):
+        return data
+    return None
+
+
+def formats_converter(data: Any) -> Iterable | None:
+    '''Return data, if data is Iterable[str], else return None'''
+    if isinstance(data, Iterable):
+        return None
+
+    for item in data:
+        if not isinstance(item, str):
+            return None
+
+    return data
+
+
+def number_converter(data: Any) -> int | None:
+    '''Return data if data is number else return None'''
+    if isinstance(data, int):
+        return data
+    if isinstance(data, str) and data.isdigit():
+        return int(data)
+    return None
 
 
 if __name__ == "__main__":
@@ -97,28 +140,17 @@ if __name__ == "__main__":
     arg_str   = list(filter(lambda x: not x.isdigit() and not os.path.exists(x), sys.argv[1:]))
 
     '''TODO: clear following code'''
-    INPUT = diverse_input(arg_paths, INPUT, 0, "Path to the input directory") # path to input dir
-    OUTPUT = diverse_input(arg_paths, OUTPUT, 1, 'Path to output directory: ')# path to output dir
+    # path to input dir
+    INPUT = diverse_input(arg_paths, INPUT, 0, "Path to the input directory", path_converter)
+    # path to output dir
+    OUTPUT = diverse_input(arg_paths, OUTPUT, 1, 'Path to output directory: ', path_converter)
     # get first part of new file names
-    NEW_FILE_NAMES = diverse_input(arg_str, NEW_FILE_NAMES, 0, "First part of new file names: ")
+    __nfmsg = "First part of new file names: "
+    NEW_FILE_NAMES = diverse_input(arg_str, NEW_FILE_NAMES, 0, __nfmsg)
 
     # get crop heigth
-    if len(arg_crop) > 0:
-        CROP_HEIGHT = arg_crop[0]
-        # validation
-        if not CROP_HEIGHT.isdigit():
-            print('Crop height must be digit!') # error message
-            sys.exit() # stop program
-        # convertation
-        CROP_HEIGHT = int(CROP_HEIGHT)
-    elif not CROP_HEIGHT:
-        CROP_HEIGHT = input("How much pixels do you want to crop? : ")
-        # validation
-        if not CROP_HEIGHT.isdigit():
-            print('Crop height must be digit!') # error message
-            sys.exit() # stop program
-        # convertation
-        CROP_HEIGHT = int(CROP_HEIGHT)
+    __crhmsg = "How much pixels do you want to crop? : "
+    CROP_HEIGHT = diverse_input(arg_crop, CROP_HEIGHT, 0, __crhmsg, number_converter)
 
     # get a list of image formats
     if len(arg_str) > 1:
