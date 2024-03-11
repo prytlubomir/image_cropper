@@ -45,12 +45,10 @@ def diverse_input(
             return data
 
     if data:
-        print('data 2', data)
         return data
 
     if not config_data:
         data = input(input_message)
-        print('data 3', data)
         if converter(data):
             return data
 
