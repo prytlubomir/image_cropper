@@ -77,7 +77,7 @@ if __name__ == "__main__":
     OUTPUT = config.get('storage', 'OUTPUT', fallback=None)
 
     IMG_FORMATS = config.get('filter', 'IMG_FORMATS', fallback='').split()
-    print(IMG_FORMATS)
+
     CROP_HEIGHT = config.getint('settings', 'CROP_HEIGHT', fallback=None)
 
     NEW_FILE_NAMES = config.get('settings', 'NEW_FILE_NAMES', fallback=None)
