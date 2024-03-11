@@ -59,6 +59,9 @@ def diverse_input(
         if converter(data):
             print(data)
             return data
+        else:
+            print("You given wrong data! QUITING!")
+            sys.exit()
 
 
 def filter_files(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
