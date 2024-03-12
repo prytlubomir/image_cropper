@@ -38,26 +38,20 @@ def diverse_input(
         input_message: str - will use as an offer to enter data for user, if no data given;
     '''
     data = converter(config_data)
-    print(data)
 
     if len(filtered_args) > args_index:
         data = filtered_args[args_index]
-        print(data)
         data = converter(data)
         if data:
-            print(data)
             return data
 
     if data:
-        print(data)
         return data
 
     if not config_data:
         data = input(input_message)
-        print(data)
         data = converter(data)
         if converter(data):
-            print(data)
             return data
         else:
             print("You given wrong data! QUITING!")
