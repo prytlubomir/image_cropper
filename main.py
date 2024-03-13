@@ -113,6 +113,8 @@ def number_converter(data: Any) -> int | None:
         return data
     if isinstance(data, str) and data.isdigit():
         return int(data)
+    if isinstance(data, float):
+        return round(data)
     return None
 
 
