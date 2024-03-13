@@ -42,4 +42,4 @@ A lot of small programs like this don't require OOP.
 This project isn't so big. It hasn't even 200 lines of code, but I already had some problems with development.
 OOP will make code a lot clearer and easier to work with.
 
- - [ ] Number parsed work wrong
+ - [ ] Number converter work wrong
