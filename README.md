@@ -43,3 +43,4 @@ This project isn't so big. It hasn't even 200 lines of code, but I already had s
 OOP will make code a lot clearer and easier to work with.
 
  - [ ] Number converter work wrong
+ - [ ] Add float support
