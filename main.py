@@ -111,11 +111,11 @@ def number_converter(data: Any) -> int | None:
     '''Return data if data is number else return None'''
     if isinstance(data, int):
         return data
-    if isinstance(data, str) and data.isdigit():
-        return int(data)
     if isinstance(data, float):
         return round(data)
     if isinstance(data, str):
+        if data.isdigit():
+            return int(data)
         splitted = data.split('.')
         if len(splitted) == 2 and all(filter(str.isdigit, splitted)):
             return round(float(data))
