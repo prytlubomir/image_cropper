@@ -39,7 +39,7 @@ Then you can use the module just like in the `test.py` example file.
 
  - [ ] Revrite with OOP.
 A lot of small programs like this don't require OOP.
-This project isn't so big. It hasn't even 200 lines of code, but I already had some problems with development.
+This project isn't so big. It has only about 200 lines of code, but I already had some problems with development.
 OOP will make code a lot clearer and easier to work with.
 
  - [ ] Number converter work wrong
