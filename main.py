@@ -47,8 +47,7 @@ def diverse_input(
 
     if data:
         return data
-
-    if not data:
+    else:
         data = input(input_message)
         data = converter(data)
         if converter(data):
