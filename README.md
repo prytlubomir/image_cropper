@@ -43,8 +43,10 @@ This project isn't so big. It has only about 200 lines of code, but I already ha
 OOP will make code a lot clearer and easier to work with.
 
  - [x] Number converter work wrong
+
 `number_converter` is ok.
  - [x] Add float support
  - [x] `diverse_input` work wrong with incorect config data.
+
 I used wrong variable.
  - [ ] Add support of iterables as data into `diverse_input`.
