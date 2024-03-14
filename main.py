@@ -153,8 +153,7 @@ if __name__ == "__main__":
     # path to output dir
     OUTPUT = diverse_input(arg_paths, OUTPUT, 1, 'Path to output directory: ', path_converter)
     # get first part of new file names
-    __nfmsg = "First part of new file names: "
-    NEW_FILE_NAMES = diverse_input(arg_str, NEW_FILE_NAMES, 0, __nfmsg)
+    NEW_FILE_NAMES = diverse_input(arg_str, NEW_FILE_NAMES, 0, "First part of new file names: ")
 
     # get crop heigth
     __crhmsg = "How much pixels do you want to crop? : "
