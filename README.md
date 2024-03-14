@@ -45,4 +45,5 @@ OOP will make code a lot clearer and easier to work with.
  - [x] Number converter work wrong
 `number_converter` is ok.
  - [x] Add float support
- - [ ] `diverse_input` work wrong with incorect config data.
+ - [x] `diverse_input` work wrong with incorect config data.
+I used wrong variable.

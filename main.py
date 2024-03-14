@@ -48,7 +48,7 @@ def diverse_input(
     if data:
         return data
 
-    if not config_data:
+    if not data:
         data = input(input_message)
         data = converter(data)
         if converter(data):
