@@ -115,6 +115,12 @@ def number_converter(data: Any) -> int | None:
         return int(data)
     if isinstance(data, float):
         return round(data)
+    if isinstance(data, str):
+        splitted = data.split('.')
+        if len(splitted) == 2 and all(filter(str.isdigit, splitted)):
+            return round(float(data))
+
+
     return None
 
 
