@@ -47,3 +47,4 @@ OOP will make code a lot clearer and easier to work with.
  - [x] Add float support
  - [x] `diverse_input` work wrong with incorect config data.
 I used wrong variable.
+ - [ ] Add support of iterables as data into `diverse_input`.
