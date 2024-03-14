@@ -42,5 +42,7 @@ A lot of small programs like this don't require OOP.
 This project isn't so big. It has only about 200 lines of code, but I already had some problems with development.
 OOP will make code a lot clearer and easier to work with.
 
- - [ ] Number converter work wrong
+ - [x] Number converter work wrong
+`number_converter` is ok.
  - [x] Add float support
+ - [ ] `diverse_input` work wrong with incorect config data.
