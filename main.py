@@ -37,17 +37,21 @@ def diverse_input(
 
         input_message: str - will use as an offer to enter data for user, if no data given;
     '''
+    # convert data from config
     data = converter(config_data)
 
+    # get data from attributes
     if len(filtered_args) > args_index:
         data = filtered_args[args_index]
         data = converter(data)
         if data:
             return data
 
+    # get data from config
     if data:
         return data
     else:
+        # ask user to insert data
         data = input(input_message)
         data = converter(data)
         if converter(data):
