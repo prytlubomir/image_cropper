@@ -50,15 +50,16 @@ def diverse_input(
     # get data from config
     if data:
         return data
-    else:
-        # ask user to insert data
-        data = input(input_message)
-        data = converter(data)
-        if converter(data):
-            return data
-        else:
-            print("You given wrong data! QUITING!")
-            sys.exit()
+
+    # ask user to insert data
+    data = input(input_message)
+    data = converter(data)
+    if converter(data):
+        return data
+
+    # display message if no data provided
+    print("You given wrong data! QUITING!")
+    sys.exit()
 
 
 def filter_files(filenames: Iterable[Any], formats: Iterable[Any]) -> list:
