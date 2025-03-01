@@ -21,7 +21,7 @@ def diverse_input(
     converter: Callable = lambda data: data
 ) -> Any:
     '''
-    Guarantees receipt of requesting data by getting data in multiple ways.
+    Guarantees receipt of required parametest by getting them in multiple ways.
     Some ways have advantage over others in the following order:
 
         argument > config > input    
@@ -33,9 +33,9 @@ def diverse_input(
 
         config_data: Any - return of "configparse.ConfigParser.get()" or similar method;
 
-        args_index: int - expecting index of expectig data in "filtered_args";
+        args_index: int - expected index of expected data in "filtered_args";
 
-        input_message: str - will use as an offer to enter data for user, if no data given;
+        input_message: str - will be used as an offer to enter data for user, if no data given;
     '''
     # convert data from config
     data = converter(config_data)
@@ -182,7 +182,7 @@ if __name__ == "__main__":
     files = os.listdir(INPUT) # get the contents of the input directory
     files = filter_files(files, IMG_FORMATS) # remove everything except images
 
-    print("Files finded.")
+    print("Files found.")
 
 
     # process images
