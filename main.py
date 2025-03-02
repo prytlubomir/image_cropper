@@ -29,7 +29,7 @@ def diverse_input(
     Arguments:
 
         filtered_args: list - must be a list of command line argument filtered by some type of data,
-                        but you can let there whatever list you want;
+                        but you can pass whatever list you want;
 
         config_data: Any - return of "configparse.ConfigParser.get()" or similar method;
 
