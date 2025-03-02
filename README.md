@@ -18,10 +18,10 @@ Step 3. To install requirements, run this command: `pip install -r requirements.
         Then you will see text interface with text fields for all necessarry data.
 
 2. You can add additional `arguments` while running program.<br>
-   - Arguments will separate by: `existing paths`, `digint`, and `other text`.<br>
+   - Arguments will separate by: `existing paths`, `number`, and `other text`.<br>
    - First `existing path` will use as `directory with uncropped images`;<br>
    - Second `existing path` will use as `directory for save cropped images`;<br>
-   - First `digit` will use as `number of pixels for crop`;<br>
+   - First `number` will use as `number of pixels for crop`;<br>
    - First `other text` will use as `first part of new file names`;<br>
    - All next `other text` will use as `extentions of files` you want to crop.<br>
    `All arguments that are not included in this list will be ignored.`<br>
