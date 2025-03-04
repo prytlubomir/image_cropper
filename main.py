@@ -28,14 +28,14 @@ def diverse_input(
 
     Arguments:
 
-        filtered_args: list - must be a list of command line argument filtered by some type of data,
-                        but you can pass whatever list you want;
+     - filtered_args: list - must be a list of command line argument filtered by some type of data,
+                    but you can pass whatever list you want;
 
-        config_data: Any - return of "configparse.ConfigParser.get()" or similar method;
+     - config_data: Any - return of "configparse.ConfigParser.get()" or similar method;
 
-        args_index: int - expected index of expected data in "filtered_args";
+     - args_index: int - expected index of expected data in "filtered_args";
 
-        input_message: str - will be used as an offer to enter data for user, if no data given;
+     - input_message: str - will be used as an offer to enter data for user, if no data given;
     '''
     # convert data from config
     data = converter(config_data)
