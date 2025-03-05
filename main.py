@@ -54,7 +54,7 @@ def diverse_input(
     # ask user to insert data
     data = input(input_message)
     data = converter(data)
-    if converter(data):
+    if data:
         return data
 
     # display message if no data provided
