@@ -37,9 +37,6 @@ def diverse_input(
 
      - input_message: str - will be used as an offer to enter data for user, if no data given;
     '''
-    # convert data from config
-    data = converter(config_data)
-
     # get data from attributes
     if len(filtered_args) > args_index:
         data = filtered_args[args_index]
@@ -48,6 +45,7 @@ def diverse_input(
             return data
 
     # return data from config
+    data = converter(config_data)
     if data:
         return data
 
