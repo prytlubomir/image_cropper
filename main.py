@@ -47,7 +47,7 @@ def diverse_input(
         if data:
             return data
 
-    # get data from config
+    # return data from config
     if data:
         return data
 
