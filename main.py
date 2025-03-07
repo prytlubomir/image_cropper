@@ -145,10 +145,10 @@ if __name__ == "__main__":
     # read command line arguments
     # command line arguments have advantage over configuration file
     arg_paths = list(filter(os.path.exists, sys.argv[1:]))
-    arg_crop  = list(filter(lambda x: x.isdigit(), sys.argv[1:]))
+    arg_crop  = list(filter(number_converter, sys.argv[1:]))
 
     # NEW_FILE_NAMES and IMG_FORMATS
-    arg_str   = list(filter(lambda x: not x.isdigit() and not os.path.exists(x), sys.argv[1:]))
+    arg_str   = list(filter(lambda x: not number_converter(x) and not os.path.exists(x), sys.argv[1:]))
 
     '''TODO: clear following code'''
     # path to input dir
